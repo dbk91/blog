@@ -18,6 +18,7 @@ Wordpress2016.overrideThemeStyles = () => ({
     padding: '10px',
     boxShadow: '0px 2px 2px hsl(0, 0%, 10%)',
     overflowX: 'auto',
+    '-webkit-overflow-scrolling': 'touch',
   },
   'pre,code': {
     lineHeight: '20px',
