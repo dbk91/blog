@@ -17,7 +17,10 @@ Wordpress2016.overrideThemeStyles = () => ({
     backgroundColor: 'hsl(222, 22%, 15%)',
     padding: '10px',
     boxShadow: '0px 2px 2px hsl(0, 0%, 10%)',
-    overflowX: 'auto',
+    overflow: 'auto',
+    minWidth: '100%',
+    wordWrap: 'normal',
+    wordBreak: 'normal',
     '-webkit-overflow-scrolling': 'touch',
   },
   'pre,code': {
