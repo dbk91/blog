@@ -103,7 +103,7 @@ Like many class components, it's a bit verbose. However, if we looks closely at 
 - The `constructor` method initializes the component's internal state.
 - The `componentDidMount` method uses the vanilla `setInterval` function to set the timer.
 - The `componentDidUpdate` checks if the timer completes any time `seconds` updates.
-- Fianlly, `componentWillUnmount` enforces the components clean up, avoiding any potential memory leaks.
+- Finally, `componentWillUnmount` enforces the components clean up, avoiding any potential memory leaks.
 
 And that's it! The other functions simply encapsulate the logic used in the lifecycle methods.
 
