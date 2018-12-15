@@ -3,9 +3,9 @@ module.exports = {
     title: 'Dan\'s Blog',
     author: 'Daniel Kelly',
     description: 'Musings about React and other technology',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    siteUrl: 'https://blog.dankelly.me/',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
