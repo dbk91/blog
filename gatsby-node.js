@@ -2,7 +2,14 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  // Redirect the Netlify requests
+  createRedirect({
+    fromPath: 'https://frosty-goldstine-f2b02e.netlify.com/*',
+    toPath: 'https://blog.dankelly.me/:splat',
+    isPermanent: true,
+  })
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
