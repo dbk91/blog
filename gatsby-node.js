@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     fromPath: 'https://frosty-goldstine-f2b02e.netlify.com/*',
     toPath: 'https://blog.dankelly.me/:splat',
     isPermanent: true,
+    force: true,
   })
 
   return new Promise((resolve, reject) => {
