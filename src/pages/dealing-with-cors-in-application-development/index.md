@@ -36,7 +36,7 @@ This answer certainly does work, however, I strongly advise you understand the i
 
 Okay, so you have the domain calling to some endpoint. Now the user needs to request some sensitive data. Hopefully, you have some authentication on the endpoint in place, so they'll have to login before making the request. Not a problem! Let's login and, try the frontend and... uh oh. More network errors.
 
-So, what's happening is that the server is not allowing the browser to send up the authentication cookies or headers, whichever are in place. This is for the benefit of the user's security. To see why this might be a security risk, let's consider the following example with the header from our previous example.
+The issue here is that the server is not allowing the browser to send up the authentication cookies or headers, whichever are required on the server. In addition, the HTTP client has to opt-in, as well. This is where libraries like Axios use the `withCredentials` configuration flag. If it's set to `true`, it will include credentials such as cookies as long as the server accepts them, as well. Opting in on both client and server is for the benefit of the user's security. To see why this might be a security risk, let's consider the following example with the header from our previous example.
 
 ```
 Access-Control-Allow-Origin: *
@@ -45,7 +45,7 @@ Access-Control-Allow-Credentials: true
 
 Receiving these headers indicates that it is both okay for a script from any domain to hit the endpoint and for authentication cookies to be sent up. So this means that if the user is logged in to your service with a cookie and they get a script from a malicious domain, that domain can request resources from your API and steal user data. That's why it might be a good idea to be as explicit as possible to list only the domains you want your scripts to request.
 
-Keep in mind that this vulnerability is essentially Cross-site request forgery. However, do not rely exclusively on CORS to protect your endpoints. If you use cookies, definitely enforce XSRF protection where you can.
+Keep in mind that this kind of vulnerability can be prevented by protecting against Cross-site request forgery. Although browser's can protect users credentials from being sent to the server, you should consider implementing protection against cross-site request forgery regardless if the endpoint is called with the same-origin or from a different one.
 
 ### Access-Control-Allow-Methods
 
