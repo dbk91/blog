@@ -1,22 +1,18 @@
 ---
 title: Dealing with CORS in Application Development
-date: '2019-01-18T13:27:44.576Z'
 ---
 
-## tl;dr
-
-1. Make sure you have return the following headers from your server to the client app.
-    - `Access-Control-Allow-Origin`
-    - `Access-Control-Allow-Credentials` (if there's authentication)
-    - `Access-Control-Allow-Methods`
-2. If using methods other than `GET`, `POST`, and `PUT`, make sure you have an endpoint to handle the `OPTIONS` pre-flight request automatically sent by the browser.
-
-There's a web app that I maintain which was originally written in PHP using the [CodeIgniter](https://codeigniter.com) framework. I learned a lot about MVC architecture and how to structure basic
-web apps in the process of writing it. However, as I learned more about how to use React as the "View" portion of a web app, I decided it was about time to gut out a lot of the pesky and bug-laden HTML templates that rendered with data from the server to smaller and more easily maintanable API endpoints that delivers the data as JSON to my React app. To keep costs minimal and improve content delivery, I also decided it was probably a good idea to keep the React app hosted on [Netlify](https://netlify.com) under a different subdomain from the CodeIgniter app itself.
+I maintain a web app which was originally written in PHP using the [CodeIgniter](https://codeigniter.com) framework. Over the course of developing and maintaining this application, I gained a fantastic understanding of the MVC architecture and how to structure what some may consider a fairly complex application. However, as I learned more about how to use React as the "View" portion of a web app, I decided it was about time to gut out a lot of the pesky and bug-laden HTML templates from the server and turn them into smaller and more easily maintanable API endpoints that deliver data as JSON to my React app. To keep costs minimal and improve content delivery, I also decided it was probably a good idea to keep the React app hosted on [Netlify](https://netlify.com) under a different subdomain from the CodeIgniter app itself.
 
 Everything was going so smoothly until the network errors started rolling in.
 
-These network errors come from the browser's implementation of CORS. Basically, if you have a script that makes XMLHTTPRequests or Fetch requests from one domain to another domain that varies in either domain, port, or protocol (i.e from `https://frontend.myapp.com` to `https://api.myapp.com`), there are certain restrictions modern browsers make to protect users. In order for the browser to correctly access resources from the other origin, it needs to adhere to a set of rules enforced by the server through HTTP headers. If you are the maintainer of the server and have access to add or configure these headers, then keep reading! Otherwise, you might need to consult the maintainer and return once you know you can update them.
+The network errors I'm referring to come from the browser's implementation of CORS. Basically, if you have a script that makes XMLHTTPRequests or Fetch requests from one domain to another domain that varies in either hostname, port, or protocol (i.e from `https://frontend.myapp.com` to `https://api.myapp.com`), there are certain restrictions modern browsers make to protect users. In order for the browser to correctly access resources from the other origin, it needs to adhere to a set of rules enforced by the server through HTTP headers.
+
+If you are the maintainer of the server and have access to add or configure these headers, then keep reading! Otherwise, you might need to consult the maintainer and return once you know you can update them.
+
+*This blog post deals with a very specific challenge CORS presents to web applications developers. I realize that there may be plenty of examples that may vary or require much more scrutiny, especially if you have a web service that must be accessible to many different scripts across several domains.*
+
+If all you need a quick and concise list of things to bypass CORS issues in your web application, [check out the last section in this post.](#tldr)
 
 Now, I'll briefly describe the headers you'll need to avoid these network issues and implement them securely into your app.
 
@@ -89,3 +85,11 @@ app.options('/the/api/resource', (req, res) => {
 I don't know if it's best practice or not to do it this way, but I figure since all we care about are the headers, there is no need to send content (hence, the `204` status).
 
 That's it! You can finally use methods other than `GET`, `HEAD`, and `POST` from your front-end to the API service. Happy hacking!
+
+## <a id="tldr">tl;dr</a>
+
+1. Make sure you have return the following headers from your server to the client app.
+    - `Access-Control-Allow-Origin`
+    - `Access-Control-Allow-Credentials` (if there's authentication)
+    - `Access-Control-Allow-Methods`
+2. If using methods other than `GET`, `POST`, and `PUT`, make sure you have an endpoint to handle the `OPTIONS` pre-flight request automatically sent by the browser.
