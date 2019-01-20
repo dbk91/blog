@@ -1,5 +1,6 @@
 ---
 title: Dealing with CORS in Application Development
+date: '2019-01-20T17:36:20.713Z'
 ---
 
 I maintain a web app which was originally written in PHP using the [CodeIgniter](https://codeigniter.com) framework. Over the course of developing and maintaining this application, I gained a fantastic understanding of the MVC architecture and how to structure what some may consider a fairly complex application. However, as I learned more about how to use React as the "View" portion of a web app, I decided it was about time to gut out a lot of the pesky and bug-laden HTML templates from the server and turn them into smaller and more easily maintanable API endpoints that deliver data as JSON to my React app. To keep costs minimal and improve content delivery, I also decided it was probably a good idea to keep the React app hosted on [Netlify](https://netlify.com) under a different subdomain from the CodeIgniter app itself.
