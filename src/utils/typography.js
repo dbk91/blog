@@ -12,6 +12,9 @@ Wordpress2016.overrideThemeStyles = () => ({
     backgroundColor: 'hsl(222, 22%, 22%)',
     color: 'white',
   },
+  'ol, ul': {
+    paddingLeft: '2em',
+  },
   pre: {
     borderRadius: '10px',
     backgroundColor: 'hsl(222, 22%, 15%)',
