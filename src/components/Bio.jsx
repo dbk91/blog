@@ -15,12 +15,12 @@ export default function Bio() {
           <a
             href="https://github.com/dbk91"
             target="_blank"
-            rel="noopener norreferrer"
+            rel="noreferrer noopener"
           >
             Dan Kelly
           </a>
         </strong>
-        's personal blog. Musings about React and other fun technology.
+        &apos;s personal blog. Musings about React and other fun technology.
       </p>
     </div>
   )

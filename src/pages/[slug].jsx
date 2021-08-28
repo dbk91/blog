@@ -14,7 +14,7 @@ export default function BlogPage(props) {
       <SEO title={props.title} description="More to come" />
       <h3>
         <Link href="/">
-          <a>Dan's Blog</a>
+          <a>Dan&apos;s Blog</a>
         </Link>
       </h3>
       <main className="mt-6 space-y-10">
