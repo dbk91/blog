@@ -1,5 +1,6 @@
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
+import remarkPrism from 'remark-prism'
 
 import SEO from 'components/SEO'
 import Layout from 'components/Layout'
@@ -33,6 +34,7 @@ export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug)
   const markdown = await remark()
     .use(remarkHtml)
+    .use(remarkPrism)
     .process(post.content ?? '')
   const content = markdown.toString()
 
