@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Head from 'next/head'
 
 import Layout from 'components/Layout'
 import Bio from 'components/Bio'
@@ -8,6 +9,10 @@ import config from 'config'
 export default function Home(props) {
   return (
     <>
+      <Head>
+        <title>{config.title}</title>
+        <meta name="description" content={config.description} />
+      </Head>
       <h1>
         <Link href="/">
           <a>{config.title}</a>
