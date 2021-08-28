@@ -3,10 +3,16 @@ import Link from 'next/link'
 import Layout from 'components/Layout'
 import Bio from 'components/Bio'
 import { getAllPosts } from 'lib/blog'
+import config from 'config'
 
 export default function Home(props) {
   return (
     <>
+      <h1>
+        <Link href="/">
+          <a>{config.title}</a>
+        </Link>
+      </h1>
       <Bio />
       {props.posts.map((post) => (
         <article key={post.title}>
