@@ -1,11 +1,13 @@
 import Link from 'next/link'
 
 import Layout from 'components/Layout'
+import Bio from 'components/Bio'
 import { getAllPosts } from 'lib/blog'
 
 export default function Home(props) {
   return (
     <>
+      <Bio />
       {props.posts.map((post) => (
         <article key={post.title}>
           <header>

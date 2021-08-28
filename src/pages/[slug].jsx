@@ -1,8 +1,10 @@
+import Link from 'next/link'
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import remarkPrism from 'remark-prism'
 
 import SEO from 'components/SEO'
+import Bio from 'components/Bio'
 import Layout from 'components/Layout'
 import { getPostBySlug, getAllPosts } from 'lib/blog'
 
@@ -10,7 +12,12 @@ export default function BlogPage(props) {
   return (
     <>
       <SEO title={props.title} description="More to come" />
-      <main>
+      <h3>
+        <Link href="/">
+          <a>Dan's Blog</a>
+        </Link>
+      </h3>
+      <main className="mt-6 space-y-10">
         <article className="space-y-10">
           <header>
             <h1 className="text-4xl">{props.title}</h1>
@@ -21,6 +28,10 @@ export default function BlogPage(props) {
             dangerouslySetInnerHTML={{ __html: props.content }}
           />
         </article>
+        <hr />
+        <footer>
+          <Bio />
+        </footer>
       </main>
     </>
   )
