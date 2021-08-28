@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import Layout from 'components/Layout'
 import { getAllPosts } from "lib/blog"
 
 export default function Home(props) {
@@ -8,18 +9,28 @@ export default function Home(props) {
       {props.posts.map(post => (
         <article key={post.title}>
           <header>
-            <h3>
+            <h3 className="text-2xl">
               <Link href={`/${post.slug}`}>
                 <a>{post.title}</a>
               </Link>
             </h3>
-            <small>
+            <small className="text-md text-gray-500">
               {post.date}
             </small>
           </header>
         </article>
       ))}
     </>
+  )
+}
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      <div className="space-y-8">
+        {page}
+      </div>
+    </Layout>
   )
 }
 

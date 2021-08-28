@@ -2,6 +2,7 @@ import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 
 import SEO from 'components/SEO'
+import Layout from 'components/Layout'
 import { getPostBySlug, getAllPosts } from 'lib/blog'
 
 export default function BlogPage(props) {
@@ -12,15 +13,21 @@ export default function BlogPage(props) {
         description="More to come"
       />
       <main>
-        <article>
+        <article className="space-y-10">
           <header>
-            <h1>{props.title}</h1>
-            <p>{props.date}</p>
+            <h1 className="text-4xl">{props.title}</h1>
+            <p className="text-gray-500">{props.date}</p>
           </header>
-          <div dangerouslySetInnerHTML={{ __html: props.content }} />
+          <div className="space-y-8" dangerouslySetInnerHTML={{ __html: props.content }} />
         </article>
       </main>
     </>
+  )
+}
+
+BlogPage.getLayout = function getLayout(page) {
+  return (
+    <Layout>{page}</Layout>
   )
 }
 
@@ -28,7 +35,7 @@ export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug)
   const markdown = await remark()
     .use(remarkHtml)
-    .process(post.content || '')
+    .process(post.content ?? '')
   const content = markdown.toString()
 
   return {
