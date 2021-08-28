@@ -31,7 +31,7 @@
     }
 
     pre {
-        @apply -m-4 p-4 text-white overflow-x-auto w-screen md:w-auto md:rounded-lg;
+        @apply -m-4 p-4 text-white overflow-x-auto sm:rounded-lg;
     }
 
     code {
