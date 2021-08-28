@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
 import Layout from 'components/Layout'
-import { getAllPosts } from "lib/blog"
+import { getAllPosts } from 'lib/blog'
 
 export default function Home(props) {
   return (
     <>
-      {props.posts.map(post => (
+      {props.posts.map((post) => (
         <article key={post.title}>
           <header>
             <h3 className="text-2xl">
@@ -14,9 +14,7 @@ export default function Home(props) {
                 <a>{post.title}</a>
               </Link>
             </h3>
-            <small className="text-md text-gray-500">
-              {post.date}
-            </small>
+            <small className="text-md text-gray-500">{post.date}</small>
           </header>
         </article>
       ))}
@@ -27,9 +25,7 @@ export default function Home(props) {
 Home.getLayout = function getLayout(page) {
   return (
     <Layout>
-      <div className="space-y-8">
-        {page}
-      </div>
+      <div className="space-y-8">{page}</div>
     </Layout>
   )
 }
@@ -43,4 +39,3 @@ export async function getStaticProps() {
     },
   }
 }
-
