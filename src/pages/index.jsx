@@ -11,12 +11,14 @@ export default function Home(props) {
       {props.posts.map((post) => (
         <article key={post.title}>
           <header>
-            <h3 className="text-2xl">
+            <h3 className="font-extrabold">
               <Link href={`/${post.slug}`}>
                 <a>{post.title}</a>
               </Link>
             </h3>
-            <small className="text-md text-gray-500">{post.date}</small>
+            <small className="text-md text-gray-500 dark:text-gray-300">
+              {post.date}
+            </small>
           </header>
         </article>
       ))}

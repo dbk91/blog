@@ -20,8 +20,10 @@ export default function BlogPage(props) {
       <main className="mt-6 space-y-10">
         <article className="space-y-10">
           <header>
-            <h1 className="text-4xl">{props.title}</h1>
-            <p className="text-gray-500">{props.date}</p>
+            <h1>{props.title}</h1>
+            <p className="text-gray-500 dark:text-gray-300 mt-2">
+              {props.date}
+            </p>
           </header>
           <div
             className="space-y-8"
