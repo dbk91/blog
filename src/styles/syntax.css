@@ -1,0 +1,62 @@
+:root {
+    --dark-shade0: #0e1112;
+    --dark-shade1: #d4d7d6;
+    --dark-shade2: #d4d7d6;
+    --dark-shade3: #d4d7d6;
+    --dark-shade4: #d4d7d6;
+    --dark-shade5: #d4d7d6;
+    --dark-shade6: #d4d7d6;
+    --dark-shade7: #5C6773;
+    --dark-accent0: #cc3e44;
+    --dark-accent1: #e37933;
+    --dark-accent2: #cbcb41;
+    --dark-accent3: #8dc149;
+    --dark-accent4: #7494a3;
+    --dark-accent5: #519aba;
+    --dark-accent6: #a074c4;
+    --dark-accent7: #f55385;
+}
+
+pre {
+    background-color: var(--dark-shade0);
+}
+
+.token.keyword {
+    color: var(--dark-accent5);
+}
+
+.token.keyword.module {
+    color: var(--dark-accent6);
+}
+
+.token.string {
+    color: var(--dark-accent3);
+}
+
+.token.number {
+    color: var(--dark-accent7);
+}
+
+.token.function {
+    color: var(--dark-accent2);
+}
+
+.token.function-variable.function {
+    color: inherit;
+}
+
+.token.tag {
+    color: var(--dark-accent5);
+}
+
+.token.punctuation {
+    color: var(--dark-accent4);
+}
+
+.token.comment {
+    color: var(--dark-shade7);
+}
+
+.token.attr-name {
+    color: var(--dark-accent2);
+}

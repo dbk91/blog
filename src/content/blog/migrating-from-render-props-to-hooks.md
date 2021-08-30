@@ -83,7 +83,7 @@ class CountdownTimer extends Component {
   }
 
   countdown = () => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       seconds: prevState.seconds - 1,
     }))
   }
@@ -118,7 +118,7 @@ Now let's implement our fancy component using Hooks! We'll name it `useCountdown
 ```jsx
 import { useState } from 'react'
 
-const useCountdownTimer = initialSeconds => {
+const useCountdownTimer = (initialSeconds) => {
   const [seconds, setSeconds] = useState(initialSeconds)
 
   // ...
@@ -219,10 +219,8 @@ import { useState, useEffect } from 'react'
 
 const useCountdownTimer = (initialSeconds, onTimerFinish) => {
   const [seconds, setSeconds] = useState(initialSeconds)
-  const [
-    relatedFeatureState,
-    setRelatedFeatureState,
-  ] = useState(/* initialize */)
+  const [relatedFeatureState, setRelatedFeatureState] =
+    useState(/* initialize */)
 
   // Mostly-related feature
   useEffect(() => {
